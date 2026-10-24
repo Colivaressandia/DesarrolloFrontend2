@@ -1,16 +1,46 @@
-# React + Vite
+# Actividad Formativa 1: Gestión de Inventario Supermercado
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Asignatura:** Desarrollo Frontend II (PFY2202)  
+**Estudiante:** Cristian Olivares  
+**Tecnologías:** HTML5, CSS3, JavaScript, React (Vite) y React Router DOM  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📋 Descripción del Proyecto
+Aplicación web frontend desarrollada con **React** para la gestión de inventario de un supermercado. El aplicativo implementa navegación mediante **React Router (SPA)** a través de una barra de navegación inferior fija, permitiendo al usuario moverse fluidamente entre distintas pantallas sin recargar la página.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Páginas Implementadas
+1. **Inicio / Gestión de Inventario (`/`):**
+   - Dashboard con métricas clave (Total de productos, Unidades en stock, Alertas de stock crítico y Valor total del inventario).
+   - Buscador en tiempo real por nombre de producto y categoría.
+   - Tabla detallada con SKU, precios en CLP, stock y estado de disponibilidad.
+2. **Quiénes Somos (`/quienes-somos`):**
+   - Reseña institucional sobre la historia y misión del supermercado.
+3. **Contáctanos (`/contacto`):**
+   - Formulario de contacto interactivo para sugerencias y consultas de abastecimiento.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologías Utilizadas
+- **React**
+- **Vite** (Build tool y entorno de desarrollo)
+- **React Router DOM v6** (Enrutamiento del lado del cliente)
+- **CSS3 Moderno** (Diseño responsivo, Grid, Flexbox y menú inferior fijo)
+
+---
+
+## 💻 Instrucciones para Ejecutar en Local
+
+1. Entrar a la carpeta del proyecto:
+   cd "Semana 1/supermercado-Cristian-Olivares-PFY2202"
+
+2. Instalar las dependencias del proyecto:
+   npm install
+
+3. Iniciar el servidor local de desarrollo:
+   npm run dev
+
+4. Abrir en el navegador:
+   http://localhost:5173/
