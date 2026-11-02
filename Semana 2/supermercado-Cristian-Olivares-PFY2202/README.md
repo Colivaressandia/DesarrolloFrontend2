@@ -1,31 +1,43 @@
 # Actividad Formativa 2: Gestión de Estado y Tailwind CSS
 
-**Asignatura:** Desarrollo Frontend II (PFY2202)  
-**Estudiante:** Cristian Olivares  
+**Asignatura:** Desarrollo Frontend II (PFY2202)
+**Estudiante:** Cristian Olivares
 
----
+Sitio web de gestión de inventario de un supermercado hecho con React. Continúa la actividad de la Semana 1 agregando estado global, nuevas páginas y un framework CSS.
 
-## 📋 Descripción de la Actualización (Semana 2)
-Esta versión expande el proyecto de la Semana 1 incorporando **Gestión de Estado Global** y **Estilos con Framework CSS**. Se ha implementado un sistema para registrar y listar nuevos artículos del inventario sin perder la información al cambiar de rutas, gracias a las herramientas avanzadas de React.
+## Funcionalidades
 
----
+- **Estado global** con Context API + `useReducer` (`src/context/`). Cada artículo tiene `nombre`, `marca`, `tipo`, `precio` y `stock`. Todas las páginas leen la misma lista mediante el hook `useInventory`.
+- **Agregar artículo (`/agregar`):** formulario controlado con validación; el nuevo artículo aparece de inmediato en la lista y en el panel de inventario.
+- **Lista de artículos (`/lista`):** tabla con todos los artículos del inventario.
+- **Inventario (`/`):** indicadores calculados (productos, unidades, stock crítico, valor total) y búsqueda por nombre, marca o tipo.
+- **Quiénes somos (`/quienes-somos`)** y **Contáctanos (`/contacto`)**. El formulario de contacto es solo demostrativo: no envía ni guarda el mensaje.
+- **Navegación** con React Router: menú superior (lista y agregar), menú inferior fijo (inventario, quiénes somos, contacto) y página 404 para rutas desconocidas.
+- **Tailwind CSS v4** en todo el sitio, con diseño responsivo.
+- **Accesibilidad:** etiquetas asociadas con `htmlFor`/`id`, buscador con etiqueta accesible, mensajes con `role="status"`/`role="alert"`, `lang="es"` y título de pestaña por página.
 
-## 🚀 Nuevas Funcionalidades Implementadas
-1. **Estado Global con Context API (`InventoryContext`):**
-   - Almacenamiento global de artículos con campos específicos (Nombre, Marca, Tipo).
-   - Función proveedora para inyectar datos y métodos a cualquier componente de la aplicación.
-2. **Nuevas Vistas y Enrutamiento:**
-   - **Menú Superior:** Navegación auxiliar creada con Tailwind CSS.
-   - **Lista de Artículos (`/lista`):** Tabla dinámica que consume el estado global para renderizar el inventario en tiempo real.
-   - **Agregar Artículo (`/agregar`):** Formulario interactivo que despacha nuevos productos hacia el estado global.
-3. **Framework CSS:**
-   - Integración completa de **Tailwind CSS v4** (mediante `@tailwindcss/vite`).
-   - Diseño responsivo, moderno y utilitario en los nuevos componentes (formularios, botones, tablas y menús).
+## Ejecutar en local
 
----
+Requiere Node.js 20 o superior.
 
-## 💻 Instrucciones para Ejecutar en Local
+```bash
+npm install
+npm run dev      # servidor de desarrollo
+npm run build    # build de producción
+npm run lint     # revisión con ESLint
+```
 
-1. Entrar a la carpeta del proyecto:
-   ```bash
-   cd "Semana 2/supermercado-Cristian-Olivares-PFY2202"
+## Estructura
+
+```
+src/
+├── components/   TopMenu, BottomNav
+├── context/      inventoryContext.js, InventoryProvider.jsx (useReducer)
+├── data/         constants.js (datos iniciales, tipos de producto)
+├── hooks/        useInventory.js, usePageTitle.js
+└── pages/        Home, ListaProductos, AgregarProducto, QuienesSomos, Contacto, NotFound
+```
+
+## Nota
+
+Los artículos viven en memoria: al recargar la página se vuelve a la lista inicial.
