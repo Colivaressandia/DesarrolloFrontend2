@@ -1,0 +1,1 @@
+import{c as e}from"./index-cwlki7WD.js";var t=e();function n({titulo:e,subtitulo:n,children:r}){return(0,t.jsxs)(`header`,{className:`mb-6 flex flex-wrap items-end justify-between gap-3`,children:[(0,t.jsxs)(`div`,{children:[(0,t.jsx)(`h1`,{className:`page-title`,children:e}),n&&(0,t.jsx)(`p`,{className:`page-subtitle`,children:n})]}),r]})}export{n as t};

@@ -1,0 +1,1 @@
+import{g as e,h as t}from"./index-cwlki7WD.js";var n=e(t(),1);function r(e){(0,n.useEffect)(()=>{document.title=`${e} | Inventario Supermercado`},[e])}export{r as t};

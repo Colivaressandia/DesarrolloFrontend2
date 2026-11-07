@@ -1,0 +1,1 @@
+import{c as e,r as t}from"./index-cwlki7WD.js";var n=e(),r={ok:{clase:`badge-ok`,texto:`● En Stock`},critico:{clase:`badge-danger`,texto:`▲ Crítico`},agotado:{clase:`badge-warning`,texto:`✕ Agotado`}};function i({articulo:e}){let{clase:i,texto:a}=r[t(e)];return(0,n.jsx)(`span`,{className:`badge ${i}`,children:a})}export{i as t};
