@@ -74,8 +74,9 @@ Este proyecto vive en la carpeta `Semana 3` del repositorio `DesarrolloFrontend2
 2. En GitHub: **Settings → Pages → Source: Deploy from a branch → rama `gh-pages` / carpeta `/ (root)`**.
 3. El sitio queda en `https://colivaressandia.github.io/DesarrolloFrontend2/`.
 
-La ruta base del sitio está en `vite.config.js` (`NOMBRE_REPO`): si cambias el nombre del repositorio, cámbiala también ahí.
-El build copia `index.html` como `404.html` para que los enlaces directos (por ejemplo `/articulos/3`) funcionen al recargar la página en GitHub Pages.
+La ruta base del sitio (`/DesarrolloFrontend2/`) se define en `vite.config.js`, en la constante `NOMBRE_REPO`.
+
+Al compilar, `index.html` se copia como `404.html` para que los enlaces directos (por ejemplo `/articulos/3`) funcionen al recargar la página en GitHub Pages.
 
 ## Notas
 
