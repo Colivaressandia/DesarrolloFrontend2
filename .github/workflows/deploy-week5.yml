@@ -1,0 +1,61 @@
+name: Deploy Semana 5 to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Semana 5/Cristian-Olivares-PFY2202/**'
+      - '.github/workflows/deploy-week5.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-week5-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: 'Semana 5/Cristian-Olivares-PFY2202/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: 'Semana 5/Cristian-Olivares-PFY2202'
+        run: npm ci
+
+      - name: Build for GitHub Pages
+        working-directory: 'Semana 5/Cristian-Olivares-PFY2202'
+        run: npm run build:pages
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Publish Semana 5 without replacing the existing site
+        shell: bash
+        run: |
+          destination='gh-pages/semana-5/Cristian-Olivares-PFY2202'
+          mkdir -p "$destination"
+          cp -R 'Semana 5/Cristian-Olivares-PFY2202/dist/.' "$destination/"
+          git -C gh-pages config user.name 'github-actions[bot]'
+          git -C gh-pages config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C gh-pages add --all -- 'semana-5/Cristian-Olivares-PFY2202'
+          if git -C gh-pages diff --cached --quiet; then
+            echo 'GitHub Pages is already up to date.'
+            exit 0
+          fi
+          git -C gh-pages commit -m 'Deploy Semana 5 to GitHub Pages'
+          git -C gh-pages push origin gh-pages

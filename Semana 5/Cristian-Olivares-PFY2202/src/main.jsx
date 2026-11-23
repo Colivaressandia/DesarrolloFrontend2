@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router';
+import { BrowserRouter, HashRouter } from 'react-router';
 import { ApolloProvider } from '@apollo/client/react';
 import App from './App.jsx';
 import { apolloClient } from './services/apolloClient';
@@ -29,9 +29,15 @@ async function iniciarAplicacion() {
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
       <ApolloProvider client={apolloClient}>
-        <BrowserRouter>
-          <App errorInicioMock={errorMock} />
-        </BrowserRouter>
+        {import.meta.env.BASE_URL === '/' ? (
+          <BrowserRouter>
+            <App errorInicioMock={errorMock} />
+          </BrowserRouter>
+        ) : (
+          <HashRouter>
+            <App errorInicioMock={errorMock} />
+          </HashRouter>
+        )}
       </ApolloProvider>
     </React.StrictMode>,
   );

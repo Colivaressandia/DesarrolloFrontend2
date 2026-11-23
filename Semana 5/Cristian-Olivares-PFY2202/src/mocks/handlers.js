@@ -25,17 +25,17 @@ async function simularCondicion() {
   }
 }
 
-const viajes = graphql.link('/graphql');
+const viajes = graphql.link(`${import.meta.env.BASE_URL}graphql`);
 
 export const handlers = [
-  http.get('/api/destinos', async () => {
+  http.get(`${import.meta.env.BASE_URL}api/destinos`, async () => {
     const fallo = await simularCondicion();
     if (fallo?.red) return HttpResponse.error();
     if (fallo?.status) return HttpResponse.json({ message: 'No fue posible cargar los destinos' }, { status: fallo.status });
     return HttpResponse.json(DESTINOS);
   }),
 
-  http.get('/api/destinos/:slug', async ({ params }) => {
+  http.get(`${import.meta.env.BASE_URL}api/destinos/:slug`, async ({ params }) => {
     const fallo = await simularCondicion();
     if (fallo?.red) return HttpResponse.error();
     if (fallo?.status) return HttpResponse.json({ message: 'No fue posible cargar el destino' }, { status: fallo.status });

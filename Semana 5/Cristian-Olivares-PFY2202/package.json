@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:pages": "vite build --base=/DesarrolloFrontend2/semana-5/Cristian-Olivares-PFY2202/",
     "lint": "eslint .",
     "preview": "vite preview"
   },

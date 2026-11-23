@@ -56,6 +56,12 @@ npm.cmd run lint
 npm.cmd run preview
 ```
 
+## Publicación en GitHub Pages
+
+La aplicación está disponible en [Rutas del Mundo](https://colivaressandia.github.io/DesarrolloFrontend2/semana-5/Cristian-Olivares-PFY2202/).
+
+El workflow de GitHub Actions compila esta carpeta y actualiza únicamente su contenido en `gh-pages`, conservando las demás publicaciones. Se ejecuta al subir cambios de Semana 5 a `main`. En GitHub Pages, la navegación usa rutas con `#` para permitir recargas y enlaces directos en el hosting estático.
+
 ## Probar el simulador
 
 1. Entrar a **Simulador**.

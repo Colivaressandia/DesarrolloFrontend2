@@ -16,7 +16,7 @@ const fetchConTimeout = async (uri, options = {}) => {
 };
 
 export const apolloClient = new ApolloClient({
-  link: new HttpLink({ uri: '/graphql', fetch: fetchConTimeout }),
+  link: new HttpLink({ uri: `${import.meta.env.BASE_URL}graphql`, fetch: fetchConTimeout }),
   cache: new InMemoryCache({
     typePolicies: {
       Query: { keyArgs: ['destinoSlug'] },
